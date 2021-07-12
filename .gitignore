@@ -1,0 +1,21 @@
+# .gitignore for fishem
+
+# Python byte-compiled/optimized/DLL items
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Python virtual environment items
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# fishem-specific items
+fishem_notes.txt
+lastfish.json
+fishery/
+csdl/

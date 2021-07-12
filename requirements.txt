@@ -1,0 +1,11 @@
+aniso8601
+click
+Flask
+Flask-RESTful
+itsdangerous
+Jinja2
+MarkupSafe
+pytz
+six
+Werkzeug
+xmltodict
