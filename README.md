@@ -57,11 +57,11 @@ public releases of the DMTF Redfish and SNIA Swordfish standards:
 
 ### Functionality that is already supported includes:
 
-- The ability to accept any valid Redfish/Swordfish mockup
-  to set the initial state of the emulator.
+- The ability to set the initial state of the emulator at
+  startup by reading in any valid Redfish/Swordfish mockup.
 
-- The ability to save the final state of an emulator run as
-  a mockup.
+- The ability to capture the final state of the emulator at
+  shutdown by creating an output mockup.
 
 - Basic handling of the allowed GET, PUT, POST, and DELETE
   operations for all the Collection objects and Singleton
