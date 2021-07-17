@@ -60,6 +60,9 @@ public releases of the DMTF Redfish and SNIA Swordfish standards:
 - The ability to accept any valid Redfish/Swordfish mockup
   to set the initial state of the emulator.
 
+- The ability to save the final state of an emulator run as
+  a mockup.
+
 - Basic handling of the allowed GET, PUT, POST, and DELETE
   operations for all the Collection objects and Singleton
   objects defined by Redfish/Swordfish schema.
@@ -92,8 +95,6 @@ public releases of the DMTF Redfish and SNIA Swordfish standards:
 
 - Optional enforcement of schema-defined requirements
   for object properties (Read Only, Mandatory, etc)
-
-- (Other updates are also in progress)
 
 ----
 
