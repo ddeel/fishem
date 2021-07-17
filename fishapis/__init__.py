@@ -2,4 +2,7 @@
 
 """
 __init__ for fishapis directory.
+
+NOTE: Nearly all of the API code modules in the fishapis directory
+are generated using information from Redfish/Swordfish CSDLschema.
 """

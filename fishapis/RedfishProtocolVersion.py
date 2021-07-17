@@ -54,9 +54,6 @@ class RedfishProtocolVersion(Resource):
         # Ensure object is in the fish object dictionary
         if request.path not in fish:
             return 'Object not found', HTTP.NOT_FOUND
-        print('========================================')               # Debug
-        print('fish elements in RedfishProtocolVersion.py:\n', len(fish))  # Debug
-        print('========================================')               # Debug
         # Return the requested object
         return fish[request.path], HTTP.OK
         # End of get()
