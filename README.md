@@ -64,6 +64,8 @@ public releases of the DMTF Redfish and SNIA Swordfish standards:
   operations for all the Collection objects and Singleton
   objects defined by Redfish/Swordfish schema.
 
+- Handling of URIs with and without trailing slashes.
+
 - Routing of RESTful API operation requests to individual
   API code modules using URIs from Redfish/Swordfish schema.
 
