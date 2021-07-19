@@ -69,9 +69,16 @@ class RedfishODataMetadata(Resource):
             ):
         """Defines GET behavior. Called by flask_restful."""
         # TODO: Generate an OData $metadata document on demand          # Note
+        # Handle GET request
+        inst_key = request.path
+        # fish keys do not have trailing slashes
+        if inst_key.endswith('/'):
+            inst_key += '/'
+            inst_key = inst_key.replace('//', '')
         # Ensure object is in the fish object dictionary
-        if request.path not in fish:
+        if inst_key not in fish:
             return 'Object not found', HTTP.NOT_FOUND
+        # Ensure the request has a good Accept Header
         good_accept_header_values_for_xml = \
             ['application/xml', '*/*', 'application/*']
         good_accept_header = False
@@ -82,7 +89,7 @@ class RedfishODataMetadata(Resource):
             return 'XML not allowed by Accept Headers', \
                     HTTP.NOT_ACCEPTABLE
         # Return object with Content-Type set to 'application/xml'
-        resp = make_response(xmltodict.unparse(fish[request.path], \
+        resp = make_response(xmltodict.unparse(fish[inst_key], \
             pretty=True), HTTP.OK)
         resp.headers.remove('Content-Type')     # Remove default
         resp.headers.remove('Content-Length')   # Remove default

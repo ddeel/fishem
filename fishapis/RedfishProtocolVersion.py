@@ -51,11 +51,17 @@ class RedfishProtocolVersion(Resource):
 
     def get(self):
         """Defines GET behavior. Called by flask_restful."""
+        # Handle GET request
+        inst_key = request.path
+        # fish keys do not have trailing slashes
+        if inst_key.endswith('/'):
+            inst_key += '/'
+            inst_key = inst_key.replace('//', '')
         # Ensure object is in the fish object dictionary
-        if request.path not in fish:
+        if inst_key not in fish:
             return 'Object not found', HTTP.NOT_FOUND
         # Return the requested object
-        return fish[request.path], HTTP.OK
+        return fish[inst_key], HTTP.OK
         # End of get()
 
 # Activate the API module
