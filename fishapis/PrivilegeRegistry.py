@@ -60,8 +60,7 @@ class PrivilegeRegistry(Resource):
         # End of __init__()
 
     def get(
-            self,
-            ChassisId = ""
+            self
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -82,8 +81,7 @@ class PrivilegeRegistry(Resource):
         # End of get()
 
     def put(
-            self,
-            ChassisId = ""
+            self
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -123,8 +121,7 @@ class PrivilegeRegistry(Resource):
         # End of put()
 
     def patch(
-            self,
-            ChassisId = ""
+            self
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -163,8 +160,7 @@ class PrivilegeRegistry(Resource):
         # End of patch()
 
     def post(
-            self,
-            ChassisId = ""
+            self
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -180,8 +176,7 @@ class PrivilegeRegistry(Resource):
         # End of post()
 
     def delete(
-            self,
-            ChassisId = ""
+            self
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -260,7 +255,6 @@ class PrivilegeRegistryActions(Resource):
 
     def post(
             self,
-            ChassisId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -300,17 +294,11 @@ def activate(rest_api):
     # Register the URIs this API module responds to:
     rest_api.add_resource(
         PrivilegeRegistry,
-        '/redfish/v1/Chassis/<string:ChassisId>/Power',
-        '/redfish/v1/Chassis/<string:ChassisId>/Power/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
         PrivilegeRegistryActions,
-        '/redfish/v1/Chassis/<string:ChassisId>/Power/Actions/<string:UriAction>',
-        '/redfish/v1/Chassis/<string:ChassisId>/Power/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Chassis/<string:ChassisId>/Power/Actions/<string:UriAction>/',
-        '/redfish/v1/Chassis/<string:ChassisId>/Power/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

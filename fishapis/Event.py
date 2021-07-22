@@ -294,17 +294,11 @@ def activate(rest_api):
     # Register the URIs this API module responds to:
     rest_api.add_resource(
         Event,
-        '/redfish/v1/EventService',
-        '/redfish/v1/EventService/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
         EventActions,
-        '/redfish/v1/EventService/Actions/<string:UriAction>',
-        '/redfish/v1/EventService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/EventService/Actions/<string:UriAction>/',
-        '/redfish/v1/EventService/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

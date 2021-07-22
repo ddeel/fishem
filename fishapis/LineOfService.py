@@ -60,9 +60,7 @@ class LineOfService(Resource):
         # End of __init__()
 
     def get(
-            self,
-            StorageServiceId = "",
-            ClassOfServiceId = ""
+            self
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -83,9 +81,7 @@ class LineOfService(Resource):
         # End of get()
 
     def put(
-            self,
-            StorageServiceId = "",
-            ClassOfServiceId = ""
+            self
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -125,9 +121,7 @@ class LineOfService(Resource):
         # End of put()
 
     def patch(
-            self,
-            StorageServiceId = "",
-            ClassOfServiceId = ""
+            self
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -166,9 +160,7 @@ class LineOfService(Resource):
         # End of patch()
 
     def post(
-            self,
-            StorageServiceId = "",
-            ClassOfServiceId = ""
+            self
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -184,9 +176,7 @@ class LineOfService(Resource):
         # End of post()
 
     def delete(
-            self,
-            StorageServiceId = "",
-            ClassOfServiceId = ""
+            self
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -265,8 +255,6 @@ class LineOfServiceActions(Resource):
 
     def post(
             self,
-            StorageServiceId = "",
-            ClassOfServiceId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -306,77 +294,11 @@ def activate(rest_api):
     # Register the URIs this API module responds to:
     rest_api.add_resource(
         LineOfService,
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataProtectionLinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataProtectionLinesOfService/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataSecurityLinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataSecurityLinesOfService/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataStorageLinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataStorageLinesOfService/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOConnectivityLinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOConnectivityLinesOfService/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOPerformanceLinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOPerformanceLinesOfService/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataProtectionLinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataProtectionLinesOfService/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataSecurityLinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataSecurityLinesOfService/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataStorageLinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataStorageLinesOfService/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOConnectivityLinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOConnectivityLinesOfService/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOPerformanceLinesOfService',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOPerformanceLinesOfService/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
         LineOfServiceActions,
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataProtectionLinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataProtectionLinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataProtectionLinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataProtectionLinesOfService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataSecurityLinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataSecurityLinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataSecurityLinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataSecurityLinesOfService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataStorageLinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataStorageLinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataStorageLinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/DataStorageLinesOfService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOConnectivityLinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOConnectivityLinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOConnectivityLinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOConnectivityLinesOfService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOPerformanceLinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOPerformanceLinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOPerformanceLinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/LinesOfService/IOPerformanceLinesOfService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataProtectionLinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataProtectionLinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataProtectionLinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataProtectionLinesOfService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataSecurityLinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataSecurityLinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataSecurityLinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataSecurityLinesOfService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataStorageLinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataStorageLinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataStorageLinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/DataStorageLinesOfService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOConnectivityLinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOConnectivityLinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOConnectivityLinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOConnectivityLinesOfService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOPerformanceLinesOfService/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOPerformanceLinesOfService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOPerformanceLinesOfService/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/ClassesOfService/<string:ClassOfServiceId>/IOPerformanceLinesOfService/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

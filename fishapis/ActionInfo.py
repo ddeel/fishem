@@ -60,8 +60,7 @@ class ActionInfo(Resource):
         # End of __init__()
 
     def get(
-            self,
-            ManagerId = ""
+            self
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -82,8 +81,7 @@ class ActionInfo(Resource):
         # End of get()
 
     def put(
-            self,
-            ManagerId = ""
+            self
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -123,8 +121,7 @@ class ActionInfo(Resource):
         # End of put()
 
     def patch(
-            self,
-            ManagerId = ""
+            self
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -163,8 +160,7 @@ class ActionInfo(Resource):
         # End of patch()
 
     def post(
-            self,
-            ManagerId = ""
+            self
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -180,8 +176,7 @@ class ActionInfo(Resource):
         # End of post()
 
     def delete(
-            self,
-            ManagerId = ""
+            self
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -260,7 +255,6 @@ class ActionInfoActions(Resource):
 
     def post(
             self,
-            ManagerId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -300,23 +294,11 @@ def activate(rest_api):
     # Register the URIs this API module responds to:
     rest_api.add_resource(
         ActionInfo,
-        '/redfish/v1/AccountService',
-        '/redfish/v1/AccountService/',
-        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService',
-        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
         ActionInfoActions,
-        '/redfish/v1/AccountService/Actions/<string:UriAction>',
-        '/redfish/v1/AccountService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/AccountService/Actions/<string:UriAction>/',
-        '/redfish/v1/AccountService/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Actions/<string:UriAction>',
-        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Actions/<string:UriAction>/',
-        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

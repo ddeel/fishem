@@ -60,8 +60,7 @@ class MessageRegistry(Resource):
         # End of __init__()
 
     def get(
-            self,
-            MessageRegistryFileId = ""
+            self
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -82,8 +81,7 @@ class MessageRegistry(Resource):
         # End of get()
 
     def put(
-            self,
-            MessageRegistryFileId = ""
+            self
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -123,8 +121,7 @@ class MessageRegistry(Resource):
         # End of put()
 
     def patch(
-            self,
-            MessageRegistryFileId = ""
+            self
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -163,8 +160,7 @@ class MessageRegistry(Resource):
         # End of patch()
 
     def post(
-            self,
-            MessageRegistryFileId = ""
+            self
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -180,8 +176,7 @@ class MessageRegistry(Resource):
         # End of post()
 
     def delete(
-            self,
-            MessageRegistryFileId = ""
+            self
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -260,7 +255,6 @@ class MessageRegistryActions(Resource):
 
     def post(
             self,
-            MessageRegistryFileId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -300,17 +294,11 @@ def activate(rest_api):
     # Register the URIs this API module responds to:
     rest_api.add_resource(
         MessageRegistry,
-        '/redfish/v1/Registries/<string:MessageRegistryFileId>',
-        '/redfish/v1/Registries/<string:MessageRegistryFileId>/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
         MessageRegistryActions,
-        '/redfish/v1/Registries/<string:MessageRegistryFileId>/Actions/<string:UriAction>',
-        '/redfish/v1/Registries/<string:MessageRegistryFileId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Registries/<string:MessageRegistryFileId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Registries/<string:MessageRegistryFileId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

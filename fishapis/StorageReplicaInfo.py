@@ -60,16 +60,7 @@ class StorageReplicaInfo(Resource):
         # End of __init__()
 
     def get(
-            self,
-            StorageServiceId = "",
-            StoragePoolId = "",
-            AllocatedPoolId = "",
-            CapacitySourceId = "",
-            ProvidingPoolId = "",
-            VolumeId = "",
-            FileSystemId = "",
-            StorageId = "",
-            ComputerSystemId = ""
+            self
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -90,16 +81,7 @@ class StorageReplicaInfo(Resource):
         # End of get()
 
     def put(
-            self,
-            StorageServiceId = "",
-            StoragePoolId = "",
-            AllocatedPoolId = "",
-            CapacitySourceId = "",
-            ProvidingPoolId = "",
-            VolumeId = "",
-            FileSystemId = "",
-            StorageId = "",
-            ComputerSystemId = ""
+            self
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -139,16 +121,7 @@ class StorageReplicaInfo(Resource):
         # End of put()
 
     def patch(
-            self,
-            StorageServiceId = "",
-            StoragePoolId = "",
-            AllocatedPoolId = "",
-            CapacitySourceId = "",
-            ProvidingPoolId = "",
-            VolumeId = "",
-            FileSystemId = "",
-            StorageId = "",
-            ComputerSystemId = ""
+            self
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -187,16 +160,7 @@ class StorageReplicaInfo(Resource):
         # End of patch()
 
     def post(
-            self,
-            StorageServiceId = "",
-            StoragePoolId = "",
-            AllocatedPoolId = "",
-            CapacitySourceId = "",
-            ProvidingPoolId = "",
-            VolumeId = "",
-            FileSystemId = "",
-            StorageId = "",
-            ComputerSystemId = ""
+            self
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -212,16 +176,7 @@ class StorageReplicaInfo(Resource):
         # End of post()
 
     def delete(
-            self,
-            StorageServiceId = "",
-            StoragePoolId = "",
-            AllocatedPoolId = "",
-            CapacitySourceId = "",
-            ProvidingPoolId = "",
-            VolumeId = "",
-            FileSystemId = "",
-            StorageId = "",
-            ComputerSystemId = ""
+            self
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -300,15 +255,6 @@ class StorageReplicaInfoActions(Resource):
 
     def post(
             self,
-            StorageServiceId = "",
-            StoragePoolId = "",
-            AllocatedPoolId = "",
-            CapacitySourceId = "",
-            ProvidingPoolId = "",
-            VolumeId = "",
-            FileSystemId = "",
-            StorageId = "",
-            ComputerSystemId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -348,119 +294,11 @@ def activate(rest_api):
     # Register the URIs this API module responds to:
     rest_api.add_resource(
         StorageReplicaInfo,
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/',
-        '/redfish/v1/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>',
-        '/redfish/v1/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
         StorageReplicaInfoActions,
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/StorageServices/<string:StorageServiceId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/AllocatedPools/<string:AllocatedPoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StoragePools/<string:StoragePoolId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:ProvidingPoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Volumes/<string:VolumeId>/AllocatedPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/FileSystems/<string:FileSystemId>/CapacitySources/<string:CapacitySourceId>/ProvidingPools/<string:StoragePoolId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

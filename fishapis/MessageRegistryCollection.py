@@ -59,11 +59,7 @@ class MessageRegistryCollection(Resource):
         # End of __init__()
 
     def get(
-            self,
-            ComputerSystemId = "",
-            MemoryId = "",
-            ChassisId = "",
-            ResourceBlockId = ""
+            self
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -84,11 +80,7 @@ class MessageRegistryCollection(Resource):
         # End of get()
 
     def post(
-            self,
-            ComputerSystemId = "",
-            MemoryId = "",
-            ChassisId = "",
-            ResourceBlockId = ""
+            self
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -151,18 +143,6 @@ def activate(rest_api):
     # Register the URIs that this API module responds to:
     rest_api.add_resource(
         MessageRegistryCollection,
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/',
-        '/redfish/v1/Chassis/<string:ChassisId>/Memory/<string:MemoryId>',
-        '/redfish/v1/Chassis/<string:ChassisId>/Memory/<string:MemoryId>/',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/'
         )
 
     return

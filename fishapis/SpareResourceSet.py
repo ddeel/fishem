@@ -60,8 +60,7 @@ class SpareResourceSet(Resource):
         # End of __init__()
 
     def get(
-            self,
-            SoftwareInventoryId = ""
+            self
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -82,8 +81,7 @@ class SpareResourceSet(Resource):
         # End of get()
 
     def put(
-            self,
-            SoftwareInventoryId = ""
+            self
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -123,8 +121,7 @@ class SpareResourceSet(Resource):
         # End of put()
 
     def patch(
-            self,
-            SoftwareInventoryId = ""
+            self
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -163,8 +160,7 @@ class SpareResourceSet(Resource):
         # End of patch()
 
     def post(
-            self,
-            SoftwareInventoryId = ""
+            self
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -180,8 +176,7 @@ class SpareResourceSet(Resource):
         # End of post()
 
     def delete(
-            self,
-            SoftwareInventoryId = ""
+            self
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -260,7 +255,6 @@ class SpareResourceSetActions(Resource):
 
     def post(
             self,
-            SoftwareInventoryId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -300,23 +294,11 @@ def activate(rest_api):
     # Register the URIs this API module responds to:
     rest_api.add_resource(
         SpareResourceSet,
-        '/redfish/v1/UpdateService/SoftwareInventory/<string:SoftwareInventoryId>',
-        '/redfish/v1/UpdateService/SoftwareInventory/<string:SoftwareInventoryId>/',
-        '/redfish/v1/UpdateService/FirmwareInventory/<string:SoftwareInventoryId>',
-        '/redfish/v1/UpdateService/FirmwareInventory/<string:SoftwareInventoryId>/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
         SpareResourceSetActions,
-        '/redfish/v1/UpdateService/SoftwareInventory/<string:SoftwareInventoryId>/Actions/<string:UriAction>',
-        '/redfish/v1/UpdateService/SoftwareInventory/<string:SoftwareInventoryId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/UpdateService/SoftwareInventory/<string:SoftwareInventoryId>/Actions/<string:UriAction>/',
-        '/redfish/v1/UpdateService/SoftwareInventory/<string:SoftwareInventoryId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/UpdateService/FirmwareInventory/<string:SoftwareInventoryId>/Actions/<string:UriAction>',
-        '/redfish/v1/UpdateService/FirmwareInventory/<string:SoftwareInventoryId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/UpdateService/FirmwareInventory/<string:SoftwareInventoryId>/Actions/<string:UriAction>/',
-        '/redfish/v1/UpdateService/FirmwareInventory/<string:SoftwareInventoryId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return
