@@ -295,18 +295,12 @@ def activate(rest_api):
     rest_api.add_resource(
         ServiceRoot,
         '/redfish/v1',
-        '/redfish/v1/',
-        '/redfish/v1',
         '/redfish/v1/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
         ServiceRootActions,
-        '/redfish/v1/Actions/<string:UriAction>',
-        '/redfish/v1/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Actions/<string:UriAction>/',
-        '/redfish/v1/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/Actions/<string:UriAction>',
         '/redfish/v1/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/Actions/<string:UriAction>/',
