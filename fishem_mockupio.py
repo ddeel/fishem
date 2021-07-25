@@ -111,15 +111,8 @@ def output(omockup_dir):
                 print('Output mockup not saved, fishem ending')
                 exit(1)
 
-    # Make an ordered fish_key list for creating mockup directories;
-    # must create the output mockup directory hierarchy in this order
-    fish_key_list = []
-    for fish_key in fish:
-        fish_key_list.append(fish_key)
-    fish_key_list.sort()
-
     # Create a new directory hierarchy for the output mockup
-    for fish_key in fish_key_list:
+    for fish_key in fish:
         # The Redfish version object is not included in mockups
         if fish_key == '/redfish':
             continue
@@ -127,7 +120,7 @@ def output(omockup_dir):
         dir_path = os.path.normpath(dir_path)
         if not os.path.isdir(dir_path):
             try:
-                os.mkdir(dir_path)
+                os.makedirs(dir_path)
             except Exception as error:
                 print('Failed to create output mockup directory "',
                     dir_path, '":', sep='')
