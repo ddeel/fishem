@@ -57,7 +57,8 @@ def input(imockup_dir):
                     json_data = xmltodict.parse(
                         open(file_path, 'r').read())
                 except Exception as error:
-                    print('Failed to read XML data with this error:')
+                    print('Failed to read input mockup XML data', \
+                        'with this error:')
                     print(error)
                     # Failure exit; cannot continue
                     print('Input mockup not loaded, fishem ending')
@@ -67,7 +68,8 @@ def input(imockup_dir):
                 try:
                     json_data = json.load(open(file_path))
                 except Exception as error:
-                    print('Failed to read JSON data with this error:')
+                    print('Failed to read input mockup JSON data', \
+                        'with this error:')
                     print(error)
                     # Failure exit; cannot continue
                     print('Input mockup not loaded, fishem ending')
