@@ -300,4 +300,12 @@ output mockup will be created.
 
 ----
 
-Don Deel, July 2021
+## Windows 10 console
+
+fishem uses Flask, which can send output to the Windows 10 console
+that includes terminal control character sequences like "^[[37m".
+If this is happening, it likely means the Windows 10 console is
+not configured to support color, and the following article may be
+useful: [Windows console with ANSI colors handling](https://superuser.com/questions/413073/windows-console-with-ansi-colors-handling "Windows console with ANSI colors handling")
+
+----
