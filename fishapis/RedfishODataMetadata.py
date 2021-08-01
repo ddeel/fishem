@@ -68,7 +68,7 @@ class RedfishODataMetadata(Resource):
             self
             ):
         """Defines GET behavior. Called by flask_restful."""
-        # TODO: Generate an OData $metadata document on demand          # Note
+        # TODO: Generate an OData $metadata document on demand, possible
         # Handle GET request
         inst_key = request.path
         # fish keys do not have trailing slashes

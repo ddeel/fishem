@@ -75,8 +75,8 @@ class PortMetrics(Resource):
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
-        # TODO: Add privilege check                                     # Note
-        # TODO: Add ETag support                                        # Note
+        # TODO: Add privilege check
+        # TODO: Add ETag support
         #
         # Handle GET request
         inst_key = request.path
@@ -107,8 +107,8 @@ class PortMetrics(Resource):
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
-        # TODO: Add privilege check                                     # Note
-        # TODO: Add ETag support                                        # Note
+        # TODO: Add privilege check
+        # TODO: Add ETag support
         #
         # Handle Resource Capability restriction
         if not res_cap_updatable:
@@ -135,7 +135,7 @@ class PortMetrics(Resource):
         # Ensure @odata.id is not being changed
         if fish[inst_key]['@odata.id'] != json_input['@odata.id']:
             return 'Bad @odata.id input', HTTP.BAD_REQUEST
-        # TODO: Add more checking of JSON input                         # Note
+        # TODO: Add more checking of JSON input
         # Replace the old object with the new object
         fish[inst_key] = json_input
         # Return a copy of the new object
@@ -158,8 +158,8 @@ class PortMetrics(Resource):
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
-        # TODO: Add privilege check                                     # Note
-        # TODO: Add ETag support                                        # Note
+        # TODO: Add privilege check
+        # TODO: Add ETag support
         #
         # Handle Resource Capability restriction
         if not res_cap_updatable:
@@ -183,10 +183,10 @@ class PortMetrics(Resource):
         # Ensure @odata.id is not a PATCH target
         if '@odata.id' in json_input:
             return 'Attempted to PATCH @odata.id', HTTP.BAD_REQUEST
-        # TODO: Add more checking of JSON input                         # Note
+        # TODO: Add more checking of JSON input
         # Update patch_key items in the object
         for patch_key, patch_value in json_input.items():
-            # TODO: Add Writeability check for each patch_key item      # Note
+            # TODO: Add Writeability check for each patch_key item
             fish[inst_key][patch_key] = patch_value
         # Return a copy of the updated object
         return fish[inst_key], HTTP.OK
@@ -235,9 +235,9 @@ class PortMetrics(Resource):
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
-        # TODO: Add privilege check                                     # Note
-        # TODO: Add ETag support                                        # Note
-        # TODO: Check for (and handle?) @Redfish.OperationApplyTime     # Note
+        # TODO: Add privilege check
+        # TODO: Add ETag support
+        # TODO: Check for (and handle?) @Redfish.OperationApplyTime
         #
         # Handle Resource Capability restriction
         if not res_cap_deletable:
@@ -326,8 +326,8 @@ class PortMetricsActions(Resource):
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
-        # TODO: Add privilege check                                     # Note
-        # TODO: Add ETag support (?)                                    # Note
+        # TODO: Add privilege check
+        # TODO: Add ETag support (?)
         #
         # Handle POST request
         action_uri_parts = request.path.split('/Actions/')

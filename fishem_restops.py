@@ -26,8 +26,6 @@ def startup(config):
     input arguments.
     """
 
-    # TODO: Add parameters for HTTPS, Debug, and Verbose                # NOTE
-
     # Create Flask and Flask-RESTful instances
     flask_app = Flask(config['name'])
     rest_api = Api(flask_app)
@@ -58,6 +56,8 @@ def startup(config):
                 mod_count += 1
     print(' (', mod_count, ' API modules)', sep='')
     print('fishem running -----------------------------------------')
+
+    # TODO: Finish adding HTTPS support
 
     # Launch RESTful operations
     flask_app.run(host='0.0.0.0', port=config['port'])

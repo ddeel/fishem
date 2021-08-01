@@ -62,8 +62,8 @@ class FishDoctor(Resource):
             UriPath=''
             ):
         """Defines GET behavior. Called by flask_restful."""
-        # TODO: Add FishDoctor enabled check                            # Note
-        # TODO: Add ETag support                                        # Note
+        # TODO: Add FishDoctor enabled check
+        # TODO: Add ETag support
         #
         # Handle GET request
         root_key = '/redfish/v1'
@@ -85,8 +85,8 @@ class FishDoctor(Resource):
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
-        # TODO: Add FishDoctor enabled check                            # Note
-        # TODO: Add ETag support                                        # Note
+        # TODO: Add FishDoctor enabled check
+        # TODO: Add ETag support
         #
         # Handle PUT request
         root_key = '/redfish/v1'
@@ -113,7 +113,7 @@ class FishDoctor(Resource):
             new_key = new_key.replace('//', '')
         if new_key != inst_key:
             return 'Bad @odata.id input', HTTP.BAD_REQUEST
-        # TODO: Add more checking of JSON input                         # Note
+        # TODO: Add more checking of JSON input
         # Replace the old object with the new object
         fish[inst_key] = json_input
         # Return a copy of the new object
@@ -125,8 +125,8 @@ class FishDoctor(Resource):
             UriPath=''
             ):
         """Defines PATCH behavior. Called by flask_restful."""
-        # TODO: Add FishDoctor enabled check                            # Note
-        # TODO: Add ETag support                                        # Note
+        # TODO: Add FishDoctor enabled check
+        # TODO: Add ETag support
         #
         # Handle PATCH request
         root_key = '/redfish/v1'
@@ -150,7 +150,7 @@ class FishDoctor(Resource):
                 new_key = new_key.replace('//', '')
             if new_key != inst_key:
                 return 'Bad @odata.id input', HTTP.BAD_REQUEST
-        # TODO: Add more checking of JSON input                         # Note
+        # TODO: Add more checking of JSON input
         # Update patch_key items in the fish object
         for patch_key, patch_value in json_input.items():
             fish[inst_key][patch_key] = patch_value
@@ -181,9 +181,9 @@ class FishDoctor(Resource):
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
-        # TODO: Add FishDoctor enabled check                            # Note
-        # TODO: Add ETag support                                        # Note
-        # TODO: Check for (and handle?) @Redfish.OperationApplyTime     # Note
+        # TODO: Add FishDoctor enabled check
+        # TODO: Add ETag support
+        # TODO: Check for (and handle?) @Redfish.OperationApplyTime
         #
         # Handle DELETE request
         root_key = '/redfish/v1'
@@ -256,8 +256,8 @@ class FishDoctorActions(Resource):
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
-        # TODO: Add privilege check                                     # Note
-        # TODO: Add ETag support (?)                                    # Note
+        # TODO: Add privilege check
+        # TODO: Add ETag support (?)
         #
         # Handle POST request
         root_key = '/redfish/v1'

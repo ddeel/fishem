@@ -51,9 +51,8 @@ def getconfig():
     # Handle optional command line arguments. When present, these
     # arguments override the corresponding configuration file values
     # and/or default values.
-    # TODO: Allow multiple input mockups to be specified                # Note
-    # TODO: Finish implemneting https functionality                     # Note
-    # TODO: Finish implementing fishdoctorEnable functionality          # Note
+    # TODO: Finish adding HTTPS support
+    # TODO: Finish adding fishdoctorEnable functionality
     parser = argparse.ArgumentParser(
         description = 'Fish Emulator version ' + __version__,
         epilog = 'Developed by Don Deel')

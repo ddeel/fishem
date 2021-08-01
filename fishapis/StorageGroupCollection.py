@@ -66,8 +66,8 @@ class StorageGroupCollection(Resource):
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
-        # TODO: Add privilege check                                     # Note
-        # TODO: Add ETag support                                        # Note
+        # TODO: Add privilege check
+        # TODO: Add ETag support
         #
         # Handle GET request
         coll_key = request.path
@@ -90,8 +90,8 @@ class StorageGroupCollection(Resource):
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
-        # TODO: Add privilege check                                     # Note
-        # TODO: Add ETag support                                        # Note
+        # TODO: Add privilege check
+        # TODO: Add ETag support
         #
         # Handle Resource Capability restriction
         if not res_cap_insertable:
@@ -126,7 +126,7 @@ class StorageGroupCollection(Resource):
         else:
             # set @odata.id to be in sync with Id
             json_input['@odata.id'] = inst_key
-        # TODO: Add more checking of JSON input                         # Note
+        # TODO: Add more checking of JSON input
         # Check if object is already in the fish object dictionary
         if inst_key in fish:
             return 'Object already exists', HTTP.BAD_REQUEST

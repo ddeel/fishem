@@ -101,11 +101,6 @@ def main():
     if fishemconfig['imockup']:
         fishem_mockupio.input(fishemconfig['imockup'])
 
-    # TODO: Allow multiple input mockups to be specified and loaded     # NOTE
-    # TODO: Add a Flask HTTPS capability ('--https')                    # NOTE
-    # TODO: Add a Flask Debug capability ('--flaskdebug')               # NOTE
-    # TODO: Add a Flask Verbose capability ('--flaskverbose')           # NOTE
-
     # Start normal REST operations
     print('fishem starting ----------------------------------------')
     fishem_restops.startup(fishemconfig)
