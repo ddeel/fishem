@@ -55,7 +55,7 @@ public releases of the DMTF Redfish and SNIA Swordfish standards:
 
 - SNIA Swordfish v1.2.2a, published June 14, 2021
 
-### Functionality that is already supported includes:
+### Functionality supported includes:
 
 - The ability to set the initial state of the emulator at
   startup by reading in any valid Redfish/Swordfish mockup.
@@ -64,10 +64,11 @@ public releases of the DMTF Redfish and SNIA Swordfish standards:
   shutdown by creating an output mockup.
 
 - Basic handling of the allowed GET, PUT, POST, and DELETE
-  operations for all the Collection objects and Singleton
-  objects defined by Redfish/Swordfish schema.
+  operations for all the URI-accessible Collection objects
+  and Singleton objects defined by Redfish/Swordfish schema.
 
-- Handling of URIs with and without trailing slashes.
+- Handling of URIs with and without trailing slashes for
+  RESTful API operations.
 
 - Routing of RESTful API operation requests to individual
   API code modules using URIs from Redfish/Swordfish schema.
@@ -83,11 +84,11 @@ public releases of the DMTF Redfish and SNIA Swordfish standards:
 - Handling of resource capabilities (Insertable, Updatable,
   and Deletable) defined by Redfish/Swordfish schema.
 
-### Functionality that is not yet complete includes:
+### Functionality not yet complete includes:
 
-- An ability to regenerate basic API code modules from updated
-  schema for all the Collection objects and Singleton objects
-  defined by Redfish/Swordfish schema.
+- The ability to generate basic API code modules from updated
+  schema for all the URI-accessible Collection objects and
+  Singleton objects defined by Redfish/Swordfish schema.
 
 - Support for HTTPS connections to the RESTful API.
 
@@ -108,7 +109,8 @@ fishem is installed with the following steps:
 - Copy the fishem project files into a folder/directory.
 
 - Go to the folder/directory where the fishem project files are
-  and install the required Python packages with this command:
+  located and install the required Python packages with this
+  command:
 
 	**pip install -r requirements.txt**
 
@@ -199,13 +201,13 @@ configuration file. There is no short form for this argument.
 
 ----
 
-## Configuration file for fishem
+## Configuration file
 
-Most of the command line arguments can also be set by an optional JSON
-configuration file named *fishem_config.json* in the folder/directory
-where *fishem.py* is kept. This is a JSON key-value file, where zero
-or more of the following supported entries can be used in any
-combination:
+Most of the fishem command line arguments can also be set by an
+optional JSON configuration file named *fishem_config.json* in
+the folder/directory where *fishem.py* is kept. This is a JSON
+key-value file, where zero or more of the following supported
+entries can be used in any combination:
 
 **"imockup": "IMOCKUP"**
 
@@ -257,7 +259,7 @@ Enable fishdoctor for the RESTful API if FLAG is set to "true".
 A default value of "false" is used unless it is set otherwise by
 the command line or the configuration file.
 
-### Additional notes
+### Configuration file notes
 
 The configuration file is optional, but a basic *fishem_config.json*
 configuration file is distributed with fishem. It sets all the input
