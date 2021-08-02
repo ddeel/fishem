@@ -31,6 +31,9 @@ def input(imockup_dir):
         print('Input mockup not loaded, fishem ending')
         exit(1)
 
+    # imockup_dir_norm is imockup_dir with normalized slashes
+    imockup_dir_norm = imockup_dir.replace('\\', '/')
+
     for dirpath, dirnames, filenames in os.walk(imockup_dir):
         for file_name in filenames:
 
@@ -46,7 +49,7 @@ def input(imockup_dir):
             else:                           # All other cases
                 # Normalize slashes and remove topdir from rel_path
                 rel_path = dirpath.replace('\\', '/')
-                rel_path = rel_path.replace(imockup_dir + '/', '')
+                rel_path = rel_path.replace(imockup_dir_norm + '/', '')
                 fish_key = FISH_KEY_BASE + '/' + rel_path
 
             # Get data from individual mockup files
