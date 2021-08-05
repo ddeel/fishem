@@ -59,6 +59,10 @@ public releases of the DMTF Redfish and SNIA Swordfish standards:
 
 - The ability to set the initial state of the emulator at
   startup by reading in any valid Redfish/Swordfish mockup.
+  Input Redfish/Swordfish mockups can include OData metadata
+  (/redfish/v1/$metadata) and/or an OData service document
+  (/redfish/v1/odata) to set the corresponding initial state
+  elements in the emulator.
 
 - The ability to capture the final state of the emulator at
   shutdown by creating an output mockup.
