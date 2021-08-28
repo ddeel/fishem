@@ -13,9 +13,9 @@ Key (path)                          Value (object)
 /redfish                            Protocol version object
 /redfish/v1                         ServiceRoot
 /redfish/v1/<R>                     Resource Collection
-/redfish/v1/<R>/<Id1>               Resource Instance object Id1
+/redfish/v1/<R>/<Id1>               Resource Singleton Id1
 /redfish/v1/<R>/<Id1>/<SR>          SubResource Collection
-/redfish/v1/<R>/<Id1>/<SR>/<Id2>    SubResource Instance object Id2
+/redfish/v1/<R>/<Id1>/<SR>/<Id2>    SubResource Singleton Id2
 /redfish/v1/odata                   OData Service Document
 /redfish/v1/$metadata               Metadata Document
 
