@@ -67,9 +67,10 @@ public releases of the DMTF Redfish and SNIA Swordfish standards:
 - The ability to capture the final state of the emulator at
   shutdown by creating an output mockup.
 
-- Basic handling of the allowed GET, PUT, POST, and DELETE
-  operations for all the URI-accessible Collection objects
-  and Singleton objects defined by Redfish/Swordfish schema.
+- Basic handling of the allowed GET, PUT, PATCH, POST, and
+  DELETE operations for all the URI-accessible Collection
+  objects and Singleton objects defined by Redfish/Swordfish
+  schema.
 
 - Handling of URIs with and without trailing slashes for
   RESTful API operations.
