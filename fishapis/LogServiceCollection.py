@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 LogServiceCollection API Definitions.
@@ -6,7 +6,7 @@ LogServiceCollection API Definitions.
 Defines REST API behaviors for LogServiceCollection.
 Allows initial data for instances of this API object to be set.
 
-Based upon fishem collection template version 0.9.0
+Based upon fishem collection template version 0.9.1
 """
 
 # Standard library module imports

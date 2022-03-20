@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 PowerDistributionCollection API Definitions.
@@ -6,7 +6,7 @@ PowerDistributionCollection API Definitions.
 Defines REST API behaviors for PowerDistributionCollection.
 Allows initial data for instances of this API object to be set.
 
-Based upon fishem collection template version 0.9.0
+Based upon fishem collection template version 0.9.1
 """
 
 # Standard library module imports
@@ -150,7 +150,11 @@ def activate(rest_api):
         '/redfish/v1/PowerEquipment/Switchgear',
         '/redfish/v1/PowerEquipment/Switchgear/',
         '/redfish/v1/PowerEquipment/TransferSwitches',
-        '/redfish/v1/PowerEquipment/TransferSwitches/'
+        '/redfish/v1/PowerEquipment/TransferSwitches/',
+        '/redfish/v1/PowerEquipment/PowerShelves',
+        '/redfish/v1/PowerEquipment/PowerShelves/',
+        '/redfish/v1/PowerEquipment/ElectricalBuses',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/'
         )
 
     return

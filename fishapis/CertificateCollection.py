@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 CertificateCollection API Definitions.
@@ -6,7 +6,7 @@ CertificateCollection API Definitions.
 Defines REST API behaviors for CertificateCollection.
 Allows initial data for instances of this API object to be set.
 
-Based upon fishem collection template version 0.9.0
+Based upon fishem collection template version 0.9.1
 """
 
 # Standard library module imports
@@ -209,6 +209,8 @@ def activate(rest_api):
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/SecureBoot/SecureBootDatabases/<string:DatabaseId>/Certificates/',
         '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/Certificates',
         '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/Certificates/',
+        '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/ClientCertificates',
+        '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/ClientCertificates/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Certificates',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Certificates/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Certificates',
@@ -285,12 +287,28 @@ def activate(rest_api):
         '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Certificates/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates',
         '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/',
         '/redfish/v1/UpdateService/RemoteServerCertificates',
-        '/redfish/v1/UpdateService/RemoteServerCertificates/'
+        '/redfish/v1/UpdateService/RemoteServerCertificates/',
+        '/redfish/v1/UpdateService/ClientCertificates',
+        '/redfish/v1/UpdateService/ClientCertificates/',
+        '/redfish/v1/Managers/<string:ManagerId>/Certificates',
+        '/redfish/v1/Managers/<string:ManagerId>/Certificates/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/'
         )
 
     return

@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 StorageSystemCollection API Definitions.
@@ -6,7 +6,7 @@ StorageSystemCollection API Definitions.
 Defines REST API behaviors for StorageSystemCollection.
 Allows initial data for instances of this API object to be set.
 
-Based upon fishem collection template version 0.9.0
+Based upon fishem collection template version 0.9.1
 """
 
 # Standard library module imports
@@ -143,8 +143,6 @@ def activate(rest_api):
     # Register the URIs that this API module responds to:
     rest_api.add_resource(
         StorageSystemCollection,
-        '/redfish/v1/Systems',
-        '/redfish/v1/Systems/',
         '/redfish/v1/StorageSystems',
         '/redfish/v1/StorageSystems/'
         )

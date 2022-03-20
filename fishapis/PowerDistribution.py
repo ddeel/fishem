@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 PowerDistribution API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for PowerDistribution.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -310,7 +310,13 @@ def activate(rest_api):
         '/redfish/v1/PowerEquipment/FloorPDUs/<string:PowerDistributionId>',
         '/redfish/v1/PowerEquipment/FloorPDUs/<string:PowerDistributionId>/',
         '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>',
-        '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/'
+        '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/<string:PowerDistributionId>',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/<string:PowerDistributionId>/'
         )
 
     # Register the Action URIs this API module responds to:
@@ -327,7 +333,19 @@ def activate(rest_api):
         '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/Actions/<string:UriAction>',
         '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/Actions/<string:UriAction>/',
-        '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/Actions/<string:UriAction>',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/Actions/<string:UriAction>/',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Actions/<string:UriAction>',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Actions/<string:UriAction>/',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/<string:PowerDistributionId>/Actions/<string:UriAction>',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/<string:PowerDistributionId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/<string:PowerDistributionId>/Actions/<string:UriAction>/',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/<string:PowerDistributionId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

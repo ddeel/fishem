@@ -1,13 +1,13 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
-FeaturesRegistry API Definitions.
+KeyPolicy API Definitions.
 
-Defines REST API behaviors for FeaturesRegistry.
+Defines REST API behaviors for KeyPolicy.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -28,8 +28,8 @@ import fishem_httpcodes as HTTP         # HTTP status codes
 # Capabilities Restricions from unversioned schema
 # (These items are read-only within the classes below)
 res_cap_insertable = False
-res_cap_updatable = False
-res_cap_deletable = False
+res_cap_updatable = True
+res_cap_deletable = True
 
 # Generate Allow HTTP Verbs string from Capabilities Restrictions
 allow_http_verbs = 'GET'
@@ -44,8 +44,8 @@ if res_cap_deletable:  allow_http_verbs += ', DELETE'
 # mocksups or fish files are loaded into fishem.
 
 
-class FeaturesRegistry(Resource):
-    """Defines API behaviors for FeaturesRegistry instances.
+class KeyPolicy(Resource):
+    """Defines API behaviors for KeyPolicy instances.
 
     Defined: GET, PUT, PATCH, DELETE.
 
@@ -60,7 +60,8 @@ class FeaturesRegistry(Resource):
         # End of __init__()
 
     def get(
-            self
+            self,
+            KeyPolicyId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -81,7 +82,8 @@ class FeaturesRegistry(Resource):
         # End of get()
 
     def put(
-            self
+            self,
+            KeyPolicyId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -121,7 +123,8 @@ class FeaturesRegistry(Resource):
         # End of put()
 
     def patch(
-            self
+            self,
+            KeyPolicyId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -160,7 +163,8 @@ class FeaturesRegistry(Resource):
         # End of patch()
 
     def post(
-            self
+            self,
+            KeyPolicyId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -176,7 +180,8 @@ class FeaturesRegistry(Resource):
         # End of post()
 
     def delete(
-            self
+            self,
+            KeyPolicyId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -230,8 +235,8 @@ class FeaturesRegistry(Resource):
         # End of delete()
 
 
-class FeaturesRegistryActions(Resource):
-    """Defines API behaviors for FeaturesRegistry Actions.
+class KeyPolicyActions(Resource):
+    """Defines API behaviors for KeyPolicy Actions.
 
     Defined: POST.
 
@@ -255,6 +260,7 @@ class FeaturesRegistryActions(Resource):
 
     def post(
             self,
+            KeyPolicyId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -293,18 +299,18 @@ def activate(rest_api):
 
     # Register the URIs this API module responds to:
     rest_api.add_resource(
-        FeaturesRegistry,
-        '/redfish/v1/Registries',
-        '/redfish/v1/Registries/'
+        KeyPolicy,
+        '/redfish/v1/KeyService/NVMeoFKeyPolicies/<string:KeyPolicyId>',
+        '/redfish/v1/KeyService/NVMeoFKeyPolicies/<string:KeyPolicyId>/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
-        FeaturesRegistryActions,
-        '/redfish/v1/Registries/Actions/<string:UriAction>',
-        '/redfish/v1/Registries/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Registries/Actions/<string:UriAction>/',
-        '/redfish/v1/Registries/Actions/Oem/<string:UriOemAction>/'
+        KeyPolicyActions,
+        '/redfish/v1/KeyService/NVMeoFKeyPolicies/<string:KeyPolicyId>/Actions/<string:UriAction>',
+        '/redfish/v1/KeyService/NVMeoFKeyPolicies/<string:KeyPolicyId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/KeyService/NVMeoFKeyPolicies/<string:KeyPolicyId>/Actions/<string:UriAction>/',
+        '/redfish/v1/KeyService/NVMeoFKeyPolicies/<string:KeyPolicyId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

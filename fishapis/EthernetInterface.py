@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 EthernetInterface API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for EthernetInterface.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -64,7 +64,10 @@ class EthernetInterface(Resource):
             ManagerId = "",
             EthernetInterfaceId = "",
             ComputerSystemId = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdaptersId = "",
+            NetworkDeviceFunctionId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -89,7 +92,10 @@ class EthernetInterface(Resource):
             ManagerId = "",
             EthernetInterfaceId = "",
             ComputerSystemId = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdaptersId = "",
+            NetworkDeviceFunctionId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -133,7 +139,10 @@ class EthernetInterface(Resource):
             ManagerId = "",
             EthernetInterfaceId = "",
             ComputerSystemId = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdaptersId = "",
+            NetworkDeviceFunctionId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -176,7 +185,10 @@ class EthernetInterface(Resource):
             ManagerId = "",
             EthernetInterfaceId = "",
             ComputerSystemId = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdaptersId = "",
+            NetworkDeviceFunctionId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -196,7 +208,10 @@ class EthernetInterface(Resource):
             ManagerId = "",
             EthernetInterfaceId = "",
             ComputerSystemId = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdaptersId = "",
+            NetworkDeviceFunctionId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -279,6 +294,9 @@ class EthernetInterfaceActions(Resource):
             EthernetInterfaceId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdaptersId = "",
+            NetworkDeviceFunctionId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -329,7 +347,9 @@ def activate(rest_api):
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/EthernetInterfaces/<string:EthernetInterfaceId>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/EthernetInterfaces/<string:EthernetInterfaceId>/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/<string:EthernetInterfaceId>',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/<string:EthernetInterfaceId>/'
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/<string:EthernetInterfaceId>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdaptersId>/NetworkDeviceFunctions/<string:NetworkDeviceFunctionId>/EthernetInterfaces/<string:EthernetInterfaceId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdaptersId>/NetworkDeviceFunctions/<string:NetworkDeviceFunctionId>/EthernetInterfaces/<string:EthernetInterfaceId>/'
         )
 
     # Register the Action URIs this API module responds to:
@@ -358,7 +378,11 @@ def activate(rest_api):
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/<string:EthernetInterfaceId>/Actions/<string:UriAction>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/<string:EthernetInterfaceId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/<string:EthernetInterfaceId>/Actions/<string:UriAction>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/<string:EthernetInterfaceId>/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/<string:EthernetInterfaceId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdaptersId>/NetworkDeviceFunctions/<string:NetworkDeviceFunctionId>/EthernetInterfaces/<string:EthernetInterfaceId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdaptersId>/NetworkDeviceFunctions/<string:NetworkDeviceFunctionId>/EthernetInterfaces/<string:EthernetInterfaceId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdaptersId>/NetworkDeviceFunctions/<string:NetworkDeviceFunctionId>/EthernetInterfaces/<string:EthernetInterfaceId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdaptersId>/NetworkDeviceFunctions/<string:NetworkDeviceFunctionId>/EthernetInterfaces/<string:EthernetInterfaceId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

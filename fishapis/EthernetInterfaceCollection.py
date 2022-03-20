@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 EthernetInterfaceCollection API Definitions.
@@ -6,7 +6,7 @@ EthernetInterfaceCollection API Definitions.
 Defines REST API behaviors for EthernetInterfaceCollection.
 Allows initial data for instances of this API object to be set.
 
-Based upon fishem collection template version 0.9.0
+Based upon fishem collection template version 0.9.1
 """
 
 # Standard library module imports
@@ -63,7 +63,10 @@ class EthernetInterfaceCollection(Resource):
             ManagerId = "",
             HostInterfaceId = "",
             ComputerSystemId = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdaptersId = "",
+            NetworkDeviceFunctionId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -88,7 +91,10 @@ class EthernetInterfaceCollection(Resource):
             ManagerId = "",
             HostInterfaceId = "",
             ComputerSystemId = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdaptersId = "",
+            NetworkDeviceFunctionId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -160,7 +166,9 @@ def activate(rest_api):
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/'
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/EthernetInterfaces/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdaptersId>/NetworkDeviceFunctions/<string:NetworkDeviceFunctionId>/EthernetInterfaces',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdaptersId>/NetworkDeviceFunctions/<string:NetworkDeviceFunctionId>/EthernetInterfaces/'
         )
 
     return

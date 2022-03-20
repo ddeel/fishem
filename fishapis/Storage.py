@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 Storage API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for Storage.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -301,6 +301,11 @@ class StorageActions(Resource):
             return 'Unknown Action for ' + inst_key, HTTP.BAD_REQUEST
         elif action_name == 'Storage.SetEncryptionKey':
             # Storage.SetEncryptionKey
+            action_string = action_name + ' action for ' + inst_key
+            print(action_string)
+            return action_string, HTTP.OK
+        elif action_name == 'Storage.ResetToDefaults':
+            # Storage.ResetToDefaults
             action_string = action_name + ' action for ' + inst_key
             print(action_string)
             return action_string, HTTP.OK

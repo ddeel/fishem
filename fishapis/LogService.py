@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 LogService API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for LogService.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -65,7 +65,8 @@ class LogService(Resource):
             LogServiceId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -91,7 +92,8 @@ class LogService(Resource):
             LogServiceId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -136,7 +138,8 @@ class LogService(Resource):
             LogServiceId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -180,7 +183,8 @@ class LogService(Resource):
             LogServiceId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -201,7 +205,8 @@ class LogService(Resource):
             LogServiceId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -285,6 +290,7 @@ class LogServiceActions(Resource):
             ComputerSystemId = "",
             ResourceBlockId = "",
             ChassisId = "",
+            MemoryId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -347,7 +353,9 @@ def activate(rest_api):
         '/redfish/v1/JobService/Log',
         '/redfish/v1/JobService/Log/',
         '/redfish/v1/TelemetryService/LogService',
-        '/redfish/v1/TelemetryService/LogService/'
+        '/redfish/v1/TelemetryService/LogService/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/'
         )
 
     # Register the Action URIs this API module responds to:
@@ -380,7 +388,11 @@ def activate(rest_api):
         '/redfish/v1/TelemetryService/LogService/Actions/<string:UriAction>',
         '/redfish/v1/TelemetryService/LogService/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/TelemetryService/LogService/Actions/<string:UriAction>/',
-        '/redfish/v1/TelemetryService/LogService/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/TelemetryService/LogService/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 PortCollection API Definitions.
@@ -6,7 +6,7 @@ PortCollection API Definitions.
 Defines REST API behaviors for PortCollection.
 Allows initial data for instances of this API object to be set.
 
-Based upon fishem collection template version 0.9.0
+Based upon fishem collection template version 0.9.1
 """
 
 # Standard library module imports
@@ -68,6 +68,7 @@ class PortCollection(Resource):
             FabricAdapterId = "",
             NetworkInterfaceId = "",
             ControllerId = "",
+            ProcessorId = "",
             ChassisId = "",
             MediaControllerId = "",
             NetworkAdapterId = "",
@@ -102,6 +103,7 @@ class PortCollection(Resource):
             FabricAdapterId = "",
             NetworkInterfaceId = "",
             ControllerId = "",
+            ProcessorId = "",
             ChassisId = "",
             MediaControllerId = "",
             NetworkAdapterId = "",
@@ -183,6 +185,8 @@ def activate(rest_api):
         '/redfish/v1/Systems/<string:ComputerSystemId>/GraphicsControllers/<string:ControllerId>/Ports/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports',
         '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/',
         '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports',
         '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/',
         '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports',

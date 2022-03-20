@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 LogEntryCollection API Definitions.
@@ -6,7 +6,7 @@ LogEntryCollection API Definitions.
 Defines REST API behaviors for LogEntryCollection.
 Allows initial data for instances of this API object to be set.
 
-Based upon fishem collection template version 0.9.0
+Based upon fishem collection template version 0.9.1
 """
 
 # Standard library module imports
@@ -64,7 +64,8 @@ class LogEntryCollection(Resource):
             LogServiceId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -90,7 +91,8 @@ class LogEntryCollection(Resource):
             LogServiceId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -166,7 +168,9 @@ def activate(rest_api):
         '/redfish/v1/JobService/Log/Entries',
         '/redfish/v1/JobService/Log/Entries/',
         '/redfish/v1/TelemetryService/LogService/Entries',
-        '/redfish/v1/TelemetryService/LogService/Entries/'
+        '/redfish/v1/TelemetryService/LogService/Entries/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Entries',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Entries/'
         )
 
     return

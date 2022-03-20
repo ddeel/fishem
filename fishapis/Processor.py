@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 Processor API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for Processor.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -64,7 +64,9 @@ class Processor(Resource):
             ComputerSystemId = "",
             ProcessorId = "",
             ProcessorId2 = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdapterId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -89,7 +91,9 @@ class Processor(Resource):
             ComputerSystemId = "",
             ProcessorId = "",
             ProcessorId2 = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdapterId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -133,7 +137,9 @@ class Processor(Resource):
             ComputerSystemId = "",
             ProcessorId = "",
             ProcessorId2 = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdapterId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -176,7 +182,9 @@ class Processor(Resource):
             ComputerSystemId = "",
             ProcessorId = "",
             ProcessorId2 = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdapterId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -196,7 +204,9 @@ class Processor(Resource):
             ComputerSystemId = "",
             ProcessorId = "",
             ProcessorId2 = "",
-            ResourceBlockId = ""
+            ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdapterId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -279,6 +289,8 @@ class ProcessorActions(Resource):
             ProcessorId = "",
             ProcessorId2 = "",
             ResourceBlockId = "",
+            ChassisId = "",
+            NetworkAdapterId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -342,7 +354,11 @@ def activate(rest_api):
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/'
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/'
         )
 
     # Register the Action URIs this API module responds to:
@@ -387,7 +403,15 @@ def activate(rest_api):
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/Actions/<string:UriAction>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/Actions/<string:UriAction>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Processors/<string:ProcessorId>/SubProcessors/<string:ProcessorId2>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

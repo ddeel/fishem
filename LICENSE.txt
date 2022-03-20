@@ -1,6 +1,6 @@
 BSD 3-Clause License
 
-Copyright (c) 2021, Don Deel
+Copyright (c) 2021-2022, Don Deel
 All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
