@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 PowerSupplyCollection API Definitions.
@@ -6,7 +6,7 @@ PowerSupplyCollection API Definitions.
 Defines REST API behaviors for PowerSupplyCollection.
 Allows initial data for instances of this API object to be set.
 
-Based upon fishem collection template version 0.9.0
+Based upon fishem collection template version 0.9.1
 """
 
 # Standard library module imports
@@ -60,7 +60,8 @@ class PowerSupplyCollection(Resource):
 
     def get(
             self,
-            ChassisId = ""
+            ChassisId = "",
+            PowerDistributionId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -82,7 +83,8 @@ class PowerSupplyCollection(Resource):
 
     def post(
             self,
-            ChassisId = ""
+            ChassisId = "",
+            PowerDistributionId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -146,7 +148,9 @@ def activate(rest_api):
     rest_api.add_resource(
         PowerSupplyCollection,
         '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies',
-        '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies/'
+        '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies/',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/PowerSupplies',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/PowerSupplies/'
         )
 
     return

@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 Handle mockup I/O for fishem.

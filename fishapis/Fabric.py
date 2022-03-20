@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 Fabric API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for Fabric.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -28,7 +28,7 @@ import fishem_httpcodes as HTTP         # HTTP status codes
 # Capabilities Restricions from unversioned schema
 # (These items are read-only within the classes below)
 res_cap_insertable = False
-res_cap_updatable = False
+res_cap_updatable = True
 res_cap_deletable = False
 
 # Generate Allow HTTP Verbs string from Capabilities Restrictions

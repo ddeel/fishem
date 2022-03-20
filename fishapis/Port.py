@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 Port API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for Port.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -69,6 +69,7 @@ class Port(Resource):
             StorageControllerId = "",
             FabricAdapterId = "",
             ControllerId = "",
+            ProcessorId = "",
             ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
@@ -103,6 +104,7 @@ class Port(Resource):
             StorageControllerId = "",
             FabricAdapterId = "",
             ControllerId = "",
+            ProcessorId = "",
             ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
@@ -156,6 +158,7 @@ class Port(Resource):
             StorageControllerId = "",
             FabricAdapterId = "",
             ControllerId = "",
+            ProcessorId = "",
             ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
@@ -208,6 +211,7 @@ class Port(Resource):
             StorageControllerId = "",
             FabricAdapterId = "",
             ControllerId = "",
+            ProcessorId = "",
             ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
@@ -237,6 +241,7 @@ class Port(Resource):
             StorageControllerId = "",
             FabricAdapterId = "",
             ControllerId = "",
+            ProcessorId = "",
             ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
@@ -328,6 +333,7 @@ class PortActions(Resource):
             StorageControllerId = "",
             FabricAdapterId = "",
             ControllerId = "",
+            ProcessorId = "",
             ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
@@ -389,6 +395,8 @@ def activate(rest_api):
         '/redfish/v1/Systems/<string:ComputerSystemId>/GraphicsControllers/<string:ControllerId>/Ports/<string:PortId>/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>',
@@ -444,6 +452,10 @@ def activate(rest_api):
         '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>/Actions/<string:UriAction>/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Actions/<string:UriAction>',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Actions/<string:UriAction>/',

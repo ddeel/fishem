@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 PortMetrics API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for PortMetrics.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -61,17 +61,20 @@ class PortMetrics(Resource):
 
     def get(
             self,
-            ComputerSystemId = "",
-            FabricAdapterId = "",
+            FabricId = "",
+            SwitchId = "",
             PortId = "",
+            ComputerSystemId = "",
+            StorageId = "",
+            StorageControllerId = "",
+            FabricAdapterId = "",
+            ControllerId = "",
+            ProcessorId = "",
+            ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
             NetworkAdapterId = "",
-            FabricId = "",
-            SwitchId = "",
-            StorageId = "",
-            StorageControllerId = "",
-            ResourceBlockId = ""
+            ManagerId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -93,17 +96,20 @@ class PortMetrics(Resource):
 
     def put(
             self,
-            ComputerSystemId = "",
-            FabricAdapterId = "",
+            FabricId = "",
+            SwitchId = "",
             PortId = "",
+            ComputerSystemId = "",
+            StorageId = "",
+            StorageControllerId = "",
+            FabricAdapterId = "",
+            ControllerId = "",
+            ProcessorId = "",
+            ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
             NetworkAdapterId = "",
-            FabricId = "",
-            SwitchId = "",
-            StorageId = "",
-            StorageControllerId = "",
-            ResourceBlockId = ""
+            ManagerId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -144,17 +150,20 @@ class PortMetrics(Resource):
 
     def patch(
             self,
-            ComputerSystemId = "",
-            FabricAdapterId = "",
+            FabricId = "",
+            SwitchId = "",
             PortId = "",
+            ComputerSystemId = "",
+            StorageId = "",
+            StorageControllerId = "",
+            FabricAdapterId = "",
+            ControllerId = "",
+            ProcessorId = "",
+            ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
             NetworkAdapterId = "",
-            FabricId = "",
-            SwitchId = "",
-            StorageId = "",
-            StorageControllerId = "",
-            ResourceBlockId = ""
+            ManagerId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -194,17 +203,20 @@ class PortMetrics(Resource):
 
     def post(
             self,
-            ComputerSystemId = "",
-            FabricAdapterId = "",
+            FabricId = "",
+            SwitchId = "",
             PortId = "",
+            ComputerSystemId = "",
+            StorageId = "",
+            StorageControllerId = "",
+            FabricAdapterId = "",
+            ControllerId = "",
+            ProcessorId = "",
+            ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
             NetworkAdapterId = "",
-            FabricId = "",
-            SwitchId = "",
-            StorageId = "",
-            StorageControllerId = "",
-            ResourceBlockId = ""
+            ManagerId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -221,17 +233,20 @@ class PortMetrics(Resource):
 
     def delete(
             self,
-            ComputerSystemId = "",
-            FabricAdapterId = "",
+            FabricId = "",
+            SwitchId = "",
             PortId = "",
+            ComputerSystemId = "",
+            StorageId = "",
+            StorageControllerId = "",
+            FabricAdapterId = "",
+            ControllerId = "",
+            ProcessorId = "",
+            ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
             NetworkAdapterId = "",
-            FabricId = "",
-            SwitchId = "",
-            StorageId = "",
-            StorageControllerId = "",
-            ResourceBlockId = ""
+            ManagerId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -310,17 +325,20 @@ class PortMetricsActions(Resource):
 
     def post(
             self,
-            ComputerSystemId = "",
-            FabricAdapterId = "",
+            FabricId = "",
+            SwitchId = "",
             PortId = "",
+            ComputerSystemId = "",
+            StorageId = "",
+            StorageControllerId = "",
+            FabricAdapterId = "",
+            ControllerId = "",
+            ProcessorId = "",
+            ResourceBlockId = "",
             ChassisId = "",
             MediaControllerId = "",
             NetworkAdapterId = "",
-            FabricId = "",
-            SwitchId = "",
-            StorageId = "",
-            StorageControllerId = "",
-            ResourceBlockId = "",
+            ManagerId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -360,41 +378,51 @@ def activate(rest_api):
     # Register the URIs this API module responds to:
     rest_api.add_resource(
         PortMetrics,
-        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics/',
-        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics',
-        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics/',
-        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics',
-        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics/',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/Metrics',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/Metrics/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/GraphicsControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/GraphicsControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/Metrics/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/'
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics',
+        '/redfish/v1/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/',
+        '/redfish/v1/Managers/<string:ManagerId>/USBPorts/<string:PortId>/Metrics',
+        '/redfish/v1/Managers/<string:ManagerId>/USBPorts/<string:PortId>/Metrics/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
         PortMetricsActions,
-        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
-        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
-        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
-        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
-        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
@@ -403,22 +431,78 @@ def activate(rest_api):
         '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/GraphicsControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/GraphicsControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/GraphicsControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/GraphicsControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/USBControllers/<string:ControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Processors/<string:ProcessorId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/MediaControllers/<string:MediaControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/Storage/<string:StorageId>/StorageControllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/Storage/<string:StorageId>/Controllers/<string:StorageControllerId>/Ports/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Managers/<string:ManagerId>/USBPorts/<string:PortId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/Managers/<string:ManagerId>/USBPorts/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Managers/<string:ManagerId>/USBPorts/<string:PortId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/Managers/<string:ManagerId>/USBPorts/<string:PortId>/Metrics/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

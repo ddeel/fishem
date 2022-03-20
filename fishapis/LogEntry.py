@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 LogEntry API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for LogEntry.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -66,7 +66,8 @@ class LogEntry(Resource):
             LogEntryId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -93,7 +94,8 @@ class LogEntry(Resource):
             LogEntryId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -139,7 +141,8 @@ class LogEntry(Resource):
             LogEntryId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -184,7 +187,8 @@ class LogEntry(Resource):
             LogEntryId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -206,7 +210,8 @@ class LogEntry(Resource):
             LogEntryId = "",
             ComputerSystemId = "",
             ResourceBlockId = "",
-            ChassisId = ""
+            ChassisId = "",
+            MemoryId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -291,6 +296,7 @@ class LogEntryActions(Resource):
             ComputerSystemId = "",
             ResourceBlockId = "",
             ChassisId = "",
+            MemoryId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -343,7 +349,9 @@ def activate(rest_api):
         '/redfish/v1/JobService/Log/Entries/<string:LogEntryId>',
         '/redfish/v1/JobService/Log/Entries/<string:LogEntryId>/',
         '/redfish/v1/TelemetryService/LogService/Entries/<string:LogEntryId>',
-        '/redfish/v1/TelemetryService/LogService/Entries/<string:LogEntryId>/'
+        '/redfish/v1/TelemetryService/LogService/Entries/<string:LogEntryId>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Entries/<string:LogEntryId>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Entries/<string:LogEntryId>/'
         )
 
     # Register the Action URIs this API module responds to:
@@ -376,7 +384,11 @@ def activate(rest_api):
         '/redfish/v1/TelemetryService/LogService/Entries/<string:LogEntryId>/Actions/<string:UriAction>',
         '/redfish/v1/TelemetryService/LogService/Entries/<string:LogEntryId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/TelemetryService/LogService/Entries/<string:LogEntryId>/Actions/<string:UriAction>/',
-        '/redfish/v1/TelemetryService/LogService/Entries/<string:LogEntryId>/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/TelemetryService/LogService/Entries/<string:LogEntryId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Entries/<string:LogEntryId>/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Entries/<string:LogEntryId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Entries/<string:LogEntryId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/DeviceLog/Entries/<string:LogEntryId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 PowerSupplyMetrics API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for PowerSupplyMetrics.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -62,7 +62,8 @@ class PowerSupplyMetrics(Resource):
     def get(
             self,
             ChassisId = "",
-            PowerSupplyId = ""
+            PowerSupplyId = "",
+            PowerDistributionId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -85,7 +86,8 @@ class PowerSupplyMetrics(Resource):
     def put(
             self,
             ChassisId = "",
-            PowerSupplyId = ""
+            PowerSupplyId = "",
+            PowerDistributionId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -127,7 +129,8 @@ class PowerSupplyMetrics(Resource):
     def patch(
             self,
             ChassisId = "",
-            PowerSupplyId = ""
+            PowerSupplyId = "",
+            PowerDistributionId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -168,7 +171,8 @@ class PowerSupplyMetrics(Resource):
     def post(
             self,
             ChassisId = "",
-            PowerSupplyId = ""
+            PowerSupplyId = "",
+            PowerDistributionId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -186,7 +190,8 @@ class PowerSupplyMetrics(Resource):
     def delete(
             self,
             ChassisId = "",
-            PowerSupplyId = ""
+            PowerSupplyId = "",
+            PowerDistributionId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -267,6 +272,7 @@ class PowerSupplyMetricsActions(Resource):
             self,
             ChassisId = "",
             PowerSupplyId = "",
+            PowerDistributionId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -312,7 +318,9 @@ def activate(rest_api):
     rest_api.add_resource(
         PowerSupplyMetrics,
         '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies/<string:PowerSupplyId>/Metrics',
-        '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies/<string:PowerSupplyId>/Metrics/'
+        '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies/<string:PowerSupplyId>/Metrics/',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/PowerSupplies/<string:PowerSupplyId>/Metrics',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/PowerSupplies/<string:PowerSupplyId>/Metrics/'
         )
 
     # Register the Action URIs this API module responds to:
@@ -321,7 +329,11 @@ def activate(rest_api):
         '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies/<string:PowerSupplyId>/Metrics/Actions/<string:UriAction>',
         '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies/<string:PowerSupplyId>/Metrics/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies/<string:PowerSupplyId>/Metrics/Actions/<string:UriAction>/',
-        '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies/<string:PowerSupplyId>/Metrics/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/Chassis/<string:ChassisId>/PowerSubsystem/PowerSupplies/<string:PowerSupplyId>/Metrics/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/PowerSupplies/<string:PowerSupplyId>/Metrics/Actions/<string:UriAction>',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/PowerSupplies/<string:PowerSupplyId>/Metrics/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/PowerSupplies/<string:PowerSupplyId>/Metrics/Actions/<string:UriAction>/',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/PowerSupplies/<string:PowerSupplyId>/Metrics/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

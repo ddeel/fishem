@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 BootOptionCollection API Definitions.
@@ -6,7 +6,7 @@ BootOptionCollection API Definitions.
 Defines REST API behaviors for BootOptionCollection.
 Allows initial data for instances of this API object to be set.
 
-Based upon fishem collection template version 0.9.0
+Based upon fishem collection template version 0.9.1
 """
 
 # Standard library module imports

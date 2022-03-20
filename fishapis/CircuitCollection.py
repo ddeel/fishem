@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 CircuitCollection API Definitions.
@@ -6,7 +6,7 @@ CircuitCollection API Definitions.
 Defines REST API behaviors for CircuitCollection.
 Allows initial data for instances of this API object to be set.
 
-Based upon fishem collection template version 0.9.0
+Based upon fishem collection template version 0.9.1
 """
 
 # Standard library module imports
@@ -160,7 +160,23 @@ def activate(rest_api):
         '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/Branches',
         '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/Branches/',
         '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/Feeders',
-        '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/Feeders/'
+        '/redfish/v1/PowerEquipment/TransferSwitches/<string:PowerDistributionId>/Feeders/',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/Mains',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/Mains/',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/Branches',
+        '/redfish/v1/PowerEquipment/PowerShelves/<string:PowerDistributionId>/Branches/',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Mains',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Mains/',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Subfeeds',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Subfeeds/',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Feeders',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Feeders/',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Branches',
+        '/redfish/v1/PowerEquipment/Switchgear/<string:PowerDistributionId>/Branches/',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/<string:PowerDistributionId>/Mains',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/<string:PowerDistributionId>/Mains/',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/<string:PowerDistributionId>/Branches',
+        '/redfish/v1/PowerEquipment/ElectricalBuses/<string:PowerDistributionId>/Branches/'
         )
 
     return

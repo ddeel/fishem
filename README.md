@@ -46,14 +46,19 @@ supported by Redfish/Swordfish schema.
 
 ## Current Status
 
-### Version: 0.9.0
+### Version: 0.9.1
 
 This version of fishem is based upon schema from the following
 public releases of the DMTF Redfish and SNIA Swordfish standards:
 
-- DMTF Redfish Release 2021.1, published May 18, 2021
+- DMTF Redfish Release 2021.4, published January 18, 2022
 
-- SNIA Swordfish v1.2.2a, published June 14, 2021
+- SNIA Swordfish v1.2.3, published December 5, 2021
+
+Note: Includes corrections for minor schema errors found in the
+Redfish Certificate\_v1.xml and CircuitCollection\_v1.xml schema
+files. These corrections have been given to the DMTF to become
+part of the next Redfish release.
 
 ### Functionality supported includes:
 

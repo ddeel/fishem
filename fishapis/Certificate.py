@@ -1,4 +1,4 @@
-# Copyright (c) 2021 by Don Deel. All rights reserved.
+# Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
 Certificate API Definitions.
@@ -7,7 +7,7 @@ Defines REST API behaviors for Certificate.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
-Based upon fishem singleton template version 0.9.0
+Based upon fishem singleton template version 0.9.1
 """
 
 # Standard library module imports
@@ -28,7 +28,7 @@ import fishem_httpcodes as HTTP         # HTTP status codes
 # Capabilities Restricions from unversioned schema
 # (These items are read-only within the classes below)
 res_cap_insertable = False
-res_cap_updatable = False
+res_cap_updatable = True
 res_cap_deletable = True
 
 # Generate Allow HTTP Verbs string from Capabilities Restrictions
@@ -444,6 +444,8 @@ def activate(rest_api):
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/SecureBoot/SecureBootDatabases/<string:DatabaseId>/Certificates/<string:CertificateId>/',
         '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/Certificates/<string:CertificateId>',
         '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/Certificates/<string:CertificateId>/',
+        '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/ClientCertificates/<string:CertificateId>',
+        '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/ClientCertificates/<string:CertificateId>/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Certificates/<string:CertificateId>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Certificates/<string:CertificateId>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Certificates/<string:CertificateId>',
@@ -520,12 +522,28 @@ def activate(rest_api):
         '/redfish/v1/Chassis/<string:ChassisId>/NetworkAdapters/<string:NetworkAdapterId>/Certificates/<string:CertificateId>/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/',
         '/redfish/v1/UpdateService/RemoteServerCertificates/<string:CertificateId>',
-        '/redfish/v1/UpdateService/RemoteServerCertificates/<string:CertificateId>/'
+        '/redfish/v1/UpdateService/RemoteServerCertificates/<string:CertificateId>/',
+        '/redfish/v1/UpdateService/ClientCertificates/<string:CertificateId>',
+        '/redfish/v1/UpdateService/ClientCertificates/<string:CertificateId>/',
+        '/redfish/v1/Managers/<string:ManagerId>/Certificates/<string:CertificateId>',
+        '/redfish/v1/Managers/<string:ManagerId>/Certificates/<string:CertificateId>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/'
         )
 
     # Register the Action URIs this API module responds to:
@@ -595,6 +613,10 @@ def activate(rest_api):
         '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/Certificates/<string:CertificateId>/Actions/<string:UriAction>/',
         '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/ClientCertificates/<string:CertificateId>/Actions/<string:UriAction>',
+        '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/ClientCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/ClientCertificates/<string:CertificateId>/Actions/<string:UriAction>/',
+        '/redfish/v1/EventService/Subscriptions/<string:EventDestinationId>/ClientCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Certificates/<string:CertificateId>/Actions/<string:UriAction>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/Certificates/<string:CertificateId>/Actions/<string:UriAction>/',
@@ -747,18 +769,50 @@ def activate(rest_api):
         '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/<string:UriAction>/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/<string:UriAction>',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/<string:UriAction>/',
         '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/<string:UriAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/<string:UriAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/<string:UriAction>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/<string:UriAction>/',
         '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/<string:UriAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/<string:UriAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/VirtualMedia/<string:VirtualMediaId>/ClientCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/UpdateService/RemoteServerCertificates/<string:CertificateId>/Actions/<string:UriAction>',
         '/redfish/v1/UpdateService/RemoteServerCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/UpdateService/RemoteServerCertificates/<string:CertificateId>/Actions/<string:UriAction>/',
-        '/redfish/v1/UpdateService/RemoteServerCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/UpdateService/RemoteServerCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/UpdateService/ClientCertificates/<string:CertificateId>/Actions/<string:UriAction>',
+        '/redfish/v1/UpdateService/ClientCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/UpdateService/ClientCertificates/<string:CertificateId>/Actions/<string:UriAction>/',
+        '/redfish/v1/UpdateService/ClientCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Managers/<string:ManagerId>/Certificates/<string:CertificateId>/Actions/<string:UriAction>',
+        '/redfish/v1/Managers/<string:ManagerId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Managers/<string:ManagerId>/Certificates/<string:CertificateId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Managers/<string:ManagerId>/Certificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/<string:UriAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/<string:UriAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/<string:UriAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/<string:UriAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/KeyManagement/KMIPCertificates/<string:CertificateId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return
