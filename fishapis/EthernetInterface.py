@@ -29,7 +29,7 @@ import fishem_httpcodes as HTTP         # HTTP status codes
 # (These items are read-only within the classes below)
 res_cap_insertable = False
 res_cap_updatable = True
-res_cap_deletable = False
+res_cap_deletable = True
 
 # Generate Allow HTTP Verbs string from Capabilities Restrictions
 allow_http_verbs = 'GET'

@@ -299,6 +299,11 @@ class ControlActions(Resource):
         # will have action_name = 'Oem/<Oem>.<ActionName>'
         if action_name == '':
             return 'Unknown Action for ' + inst_key, HTTP.BAD_REQUEST
+        elif action_name == 'Control.ResetToDefaults':
+            # Control.ResetToDefaults
+            action_string = action_name + ' action for ' + inst_key
+            print(action_string)
+            return action_string, HTTP.OK
         else:
             # Did not find a defined Action or OEM Action
             return 'Unknown Action for ' + inst_key, HTTP.BAD_REQUEST

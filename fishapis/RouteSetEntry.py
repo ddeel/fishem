@@ -67,10 +67,11 @@ class RouteSetEntry(Resource):
             LPRTId = "",
             RouteId = "",
             MPRTId = "",
-            ComputerSystemId = "",
+            ChassisId = "",
             FabricAdapterId = "",
             MSDTId = "",
-            SSDTId = ""
+            SSDTId = "",
+            ComputerSystemId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -98,10 +99,11 @@ class RouteSetEntry(Resource):
             LPRTId = "",
             RouteId = "",
             MPRTId = "",
-            ComputerSystemId = "",
+            ChassisId = "",
             FabricAdapterId = "",
             MSDTId = "",
-            SSDTId = ""
+            SSDTId = "",
+            ComputerSystemId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -148,10 +150,11 @@ class RouteSetEntry(Resource):
             LPRTId = "",
             RouteId = "",
             MPRTId = "",
-            ComputerSystemId = "",
+            ChassisId = "",
             FabricAdapterId = "",
             MSDTId = "",
-            SSDTId = ""
+            SSDTId = "",
+            ComputerSystemId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -197,10 +200,11 @@ class RouteSetEntry(Resource):
             LPRTId = "",
             RouteId = "",
             MPRTId = "",
-            ComputerSystemId = "",
+            ChassisId = "",
             FabricAdapterId = "",
             MSDTId = "",
-            SSDTId = ""
+            SSDTId = "",
+            ComputerSystemId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -223,10 +227,11 @@ class RouteSetEntry(Resource):
             LPRTId = "",
             RouteId = "",
             MPRTId = "",
-            ComputerSystemId = "",
+            ChassisId = "",
             FabricAdapterId = "",
             MSDTId = "",
-            SSDTId = ""
+            SSDTId = "",
+            ComputerSystemId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -311,10 +316,11 @@ class RouteSetEntryActions(Resource):
             LPRTId = "",
             RouteId = "",
             MPRTId = "",
-            ComputerSystemId = "",
+            ChassisId = "",
             FabricAdapterId = "",
             MSDTId = "",
             SSDTId = "",
+            ComputerSystemId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -358,6 +364,14 @@ def activate(rest_api):
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/LPRT/<string:LPRTId>/RouteSet/<string:RouteId>/',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/LPRT/<string:LPRTId>/RouteSet/<string:RouteId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/LPRT/<string:LPRTId>/RouteSet/<string:RouteId>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/SSDT/<string:SSDTId>/RouteSet/<string:RouteId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/SSDT/<string:SSDTId>/RouteSet/<string:RouteId>/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/SSDT/<string:SSDTId>/RouteSet/<string:RouteId>',
@@ -379,6 +393,22 @@ def activate(rest_api):
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>/',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/LPRT/<string:LPRTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/LPRT/<string:LPRTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/LPRT/<string:LPRTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/LPRT/<string:LPRTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/SSDT/<string:SSDTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/SSDT/<string:SSDTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/SSDT/<string:SSDTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/SSDT/<string:SSDTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/<string:RouteId>/Actions/<string:UriAction>/',

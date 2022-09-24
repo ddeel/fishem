@@ -65,10 +65,11 @@ class RouteSetEntryCollection(Resource):
             PortId = "",
             LPRTId = "",
             MPRTId = "",
-            ComputerSystemId = "",
+            ChassisId = "",
             FabricAdapterId = "",
+            SSDTId = "",
             MSDTId = "",
-            SSDTId = ""
+            ComputerSystemId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -95,10 +96,11 @@ class RouteSetEntryCollection(Resource):
             PortId = "",
             LPRTId = "",
             MPRTId = "",
-            ComputerSystemId = "",
+            ChassisId = "",
             FabricAdapterId = "",
+            SSDTId = "",
             MSDTId = "",
-            SSDTId = ""
+            ComputerSystemId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -165,6 +167,14 @@ def activate(rest_api):
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/LPRT/<string:LPRTId>/RouteSet/',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet',
         '/redfish/v1/Fabrics/<string:FabricId>/Switches/<string:SwitchId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/LPRT/<string:LPRTId>/RouteSet',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/LPRT/<string:LPRTId>/RouteSet/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/MPRT/<string:MPRTId>/RouteSet/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/SSDT/<string:SSDTId>/RouteSet',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/SSDT/<string:SSDTId>/RouteSet/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet',
         '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/MSDT/<string:MSDTId>/RouteSet/',
         '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/SSDT/<string:SSDTId>/RouteSet',

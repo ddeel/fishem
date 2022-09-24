@@ -1,9 +1,9 @@
 # Copyright (c) 2021-2022 by Don Deel. All rights reserved.
 
 """
-Memory API Definitions.
+TrustedComponent API Definitions.
 
-Defines REST API behaviors for Memory.
+Defines REST API behaviors for TrustedComponent.
 Allows initial data for instances of this API object to be set.
 Supports the handling of Actions defined for this API object.
 
@@ -44,8 +44,8 @@ if res_cap_deletable:  allow_http_verbs += ', DELETE'
 # mocksups or fish files are loaded into fishem.
 
 
-class Memory(Resource):
-    """Defines API behaviors for Memory instances.
+class TrustedComponent(Resource):
+    """Defines API behaviors for TrustedComponent instances.
 
     Defined: GET, PUT, PATCH, DELETE.
 
@@ -61,10 +61,8 @@ class Memory(Resource):
 
     def get(
             self,
-            ComputerSystemId = "",
-            MemoryId = "",
             ChassisId = "",
-            ResourceBlockId = ""
+            TrustedComponentId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -86,10 +84,8 @@ class Memory(Resource):
 
     def put(
             self,
-            ComputerSystemId = "",
-            MemoryId = "",
             ChassisId = "",
-            ResourceBlockId = ""
+            TrustedComponentId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -130,10 +126,8 @@ class Memory(Resource):
 
     def patch(
             self,
-            ComputerSystemId = "",
-            MemoryId = "",
             ChassisId = "",
-            ResourceBlockId = ""
+            TrustedComponentId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -173,10 +167,8 @@ class Memory(Resource):
 
     def post(
             self,
-            ComputerSystemId = "",
-            MemoryId = "",
             ChassisId = "",
-            ResourceBlockId = ""
+            TrustedComponentId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -193,10 +185,8 @@ class Memory(Resource):
 
     def delete(
             self,
-            ComputerSystemId = "",
-            MemoryId = "",
             ChassisId = "",
-            ResourceBlockId = ""
+            TrustedComponentId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -250,8 +240,8 @@ class Memory(Resource):
         # End of delete()
 
 
-class MemoryActions(Resource):
-    """Defines API behaviors for Memory Actions.
+class TrustedComponentActions(Resource):
+    """Defines API behaviors for TrustedComponent Actions.
 
     Defined: POST.
 
@@ -275,10 +265,8 @@ class MemoryActions(Resource):
 
     def post(
             self,
-            ComputerSystemId = "",
-            MemoryId = "",
             ChassisId = "",
-            ResourceBlockId = "",
+            TrustedComponentId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -305,41 +293,6 @@ class MemoryActions(Resource):
         # will have action_name = 'Oem/<Oem>.<ActionName>'
         if action_name == '':
             return 'Unknown Action for ' + inst_key, HTTP.BAD_REQUEST
-        elif action_name == 'Memory.UnlockUnit':
-            # Memory.UnlockUnit
-            action_string = action_name + ' action for ' + inst_key
-            print(action_string)
-            return action_string, HTTP.OK
-        elif action_name == 'Memory.SecureEraseUnit':
-            # Memory.SecureEraseUnit
-            action_string = action_name + ' action for ' + inst_key
-            print(action_string)
-            return action_string, HTTP.OK
-        elif action_name == 'Memory.OverwriteUnit':
-            # Memory.OverwriteUnit
-            action_string = action_name + ' action for ' + inst_key
-            print(action_string)
-            return action_string, HTTP.OK
-        elif action_name == 'Memory.SetPassphrase':
-            # Memory.SetPassphrase
-            action_string = action_name + ' action for ' + inst_key
-            print(action_string)
-            return action_string, HTTP.OK
-        elif action_name == 'Memory.DisablePassphrase':
-            # Memory.DisablePassphrase
-            action_string = action_name + ' action for ' + inst_key
-            print(action_string)
-            return action_string, HTTP.OK
-        elif action_name == 'Memory.Reset':
-            # Memory.Reset
-            action_string = action_name + ' action for ' + inst_key
-            print(action_string)
-            return action_string, HTTP.OK
-        elif action_name == 'Memory.ResetToDefaults':
-            # Memory.ResetToDefaults
-            action_string = action_name + ' action for ' + inst_key
-            print(action_string)
-            return action_string, HTTP.OK
         else:
             # Did not find a defined Action or OEM Action
             return 'Unknown Action for ' + inst_key, HTTP.BAD_REQUEST
@@ -352,48 +305,18 @@ def activate(rest_api):
 
     # Register the URIs this API module responds to:
     rest_api.add_resource(
-        Memory,
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/',
-        '/redfish/v1/Chassis/<string:ChassisId>/Memory/<string:MemoryId>',
-        '/redfish/v1/Chassis/<string:ChassisId>/Memory/<string:MemoryId>/',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/'
+        TrustedComponent,
+        '/redfish/v1/Chassis/<string:ChassisId>/TrustedComponents/<string:TrustedComponentId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/TrustedComponents/<string:TrustedComponentId>/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
-        MemoryActions,
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/<string:UriAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/Chassis/<string:ChassisId>/Memory/<string:MemoryId>/Actions/<string:UriAction>',
-        '/redfish/v1/Chassis/<string:ChassisId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Chassis/<string:ChassisId>/Memory/<string:MemoryId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Chassis/<string:ChassisId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/Actions/<string:UriAction>',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/Actions/<string:UriAction>/',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/<string:UriAction>',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/<string:UriAction>/',
-        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/Actions/<string:UriAction>',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/Actions/<string:UriAction>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/<string:UriAction>',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/<string:UriAction>/',
-        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/Memory/<string:MemoryId>/Actions/Oem/<string:UriOemAction>/'
+        TrustedComponentActions,
+        '/redfish/v1/Chassis/<string:ChassisId>/TrustedComponents/<string:TrustedComponentId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/TrustedComponents/<string:TrustedComponentId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/TrustedComponents/<string:TrustedComponentId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/TrustedComponents/<string:TrustedComponentId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

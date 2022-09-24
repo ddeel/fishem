@@ -26,7 +26,7 @@ import fishem_httpcodes as HTTP         # HTTP status codes
 
 # Capabilities Restricions from unversioned schema
 # (These items are read-only within the classes below)
-res_cap_insertable = False
+res_cap_insertable = True
 res_cap_updatable = False
 res_cap_deletable = False
 

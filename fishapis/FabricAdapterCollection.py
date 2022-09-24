@@ -60,7 +60,9 @@ class FabricAdapterCollection(Resource):
 
     def get(
             self,
-            ComputerSystemId = ""
+            ComputerSystemId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -82,7 +84,9 @@ class FabricAdapterCollection(Resource):
 
     def post(
             self,
-            ComputerSystemId = ""
+            ComputerSystemId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -146,7 +150,13 @@ def activate(rest_api):
     rest_api.add_resource(
         FabricAdapterCollection,
         '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters',
-        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/'
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/',
+        '/redfish/v1/CompositionService/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters',
+        '/redfish/v1/CompositionService/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/',
+        '/redfish/v1/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters',
+        '/redfish/v1/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/'
         )
 
     return

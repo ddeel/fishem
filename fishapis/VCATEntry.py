@@ -66,7 +66,9 @@ class VCATEntry(Resource):
             PortId = "",
             VCATEntryId = "",
             SystemId = "",
-            FabricAdapterId = ""
+            FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -93,7 +95,9 @@ class VCATEntry(Resource):
             PortId = "",
             VCATEntryId = "",
             SystemId = "",
-            FabricAdapterId = ""
+            FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -139,7 +143,9 @@ class VCATEntry(Resource):
             PortId = "",
             VCATEntryId = "",
             SystemId = "",
-            FabricAdapterId = ""
+            FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -184,7 +190,9 @@ class VCATEntry(Resource):
             PortId = "",
             VCATEntryId = "",
             SystemId = "",
-            FabricAdapterId = ""
+            FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -206,7 +214,9 @@ class VCATEntry(Resource):
             PortId = "",
             VCATEntryId = "",
             SystemId = "",
-            FabricAdapterId = ""
+            FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -291,6 +301,8 @@ class VCATEntryActions(Resource):
             VCATEntryId = "",
             SystemId = "",
             FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -337,7 +349,25 @@ def activate(rest_api):
         '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>',
         '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/',
         '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>',
-        '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/'
+        '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/'
         )
 
     # Register the Action URIs this API module responds to:
@@ -358,7 +388,43 @@ def activate(rest_api):
         '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>',
         '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/<string:UriAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/<string:UriAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>/',
+        '/redfish/v1/CompositionService/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/<string:UriAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/<string:UriAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>/',
+        '/redfish/v1/ResourceBlocks/<string:ResourceBlockId>/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Ports/<string:PortId>/VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/REQ-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/RSP-VCAT/<string:VCATEntryId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

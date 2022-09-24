@@ -59,7 +59,9 @@ class KeyCollection(Resource):
         # End of __init__()
 
     def get(
-            self
+            self,
+            ManagerAccountId = "",
+            ManagerId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -80,7 +82,9 @@ class KeyCollection(Resource):
         # End of get()
 
     def post(
-            self
+            self,
+            ManagerAccountId = "",
+            ManagerId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -144,7 +148,11 @@ def activate(rest_api):
     rest_api.add_resource(
         KeyCollection,
         '/redfish/v1/KeyService/NVMeoFSecrets',
-        '/redfish/v1/KeyService/NVMeoFSecrets/'
+        '/redfish/v1/KeyService/NVMeoFSecrets/',
+        '/redfish/v1/AccountService/Accounts/<string:ManagerAccountId>/Keys',
+        '/redfish/v1/AccountService/Accounts/<string:ManagerAccountId>/Keys/',
+        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Accounts/<string:ManagerAccountId>/Keys',
+        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Accounts/<string:ManagerAccountId>/Keys/'
         )
 
     return

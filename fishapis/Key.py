@@ -61,7 +61,9 @@ class Key(Resource):
 
     def get(
             self,
-            KeyId = ""
+            KeyId = "",
+            ManagerAccountId = "",
+            ManagerId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -83,7 +85,9 @@ class Key(Resource):
 
     def put(
             self,
-            KeyId = ""
+            KeyId = "",
+            ManagerAccountId = "",
+            ManagerId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -124,7 +128,9 @@ class Key(Resource):
 
     def patch(
             self,
-            KeyId = ""
+            KeyId = "",
+            ManagerAccountId = "",
+            ManagerId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -164,7 +170,9 @@ class Key(Resource):
 
     def post(
             self,
-            KeyId = ""
+            KeyId = "",
+            ManagerAccountId = "",
+            ManagerId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -181,7 +189,9 @@ class Key(Resource):
 
     def delete(
             self,
-            KeyId = ""
+            KeyId = "",
+            ManagerAccountId = "",
+            ManagerId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -261,6 +271,8 @@ class KeyActions(Resource):
     def post(
             self,
             KeyId = "",
+            ManagerAccountId = "",
+            ManagerId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -301,7 +313,11 @@ def activate(rest_api):
     rest_api.add_resource(
         Key,
         '/redfish/v1/KeyService/NVMeoFSecrets/<string:KeyId>',
-        '/redfish/v1/KeyService/NVMeoFSecrets/<string:KeyId>/'
+        '/redfish/v1/KeyService/NVMeoFSecrets/<string:KeyId>/',
+        '/redfish/v1/AccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>',
+        '/redfish/v1/AccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>/',
+        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>',
+        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>/'
         )
 
     # Register the Action URIs this API module responds to:
@@ -310,7 +326,15 @@ def activate(rest_api):
         '/redfish/v1/KeyService/NVMeoFSecrets/<string:KeyId>/Actions/<string:UriAction>',
         '/redfish/v1/KeyService/NVMeoFSecrets/<string:KeyId>/Actions/Oem/<string:UriOemAction>',
         '/redfish/v1/KeyService/NVMeoFSecrets/<string:KeyId>/Actions/<string:UriAction>/',
-        '/redfish/v1/KeyService/NVMeoFSecrets/<string:KeyId>/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/KeyService/NVMeoFSecrets/<string:KeyId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/AccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>/Actions/<string:UriAction>',
+        '/redfish/v1/AccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/AccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>/Actions/<string:UriAction>/',
+        '/redfish/v1/AccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>/Actions/<string:UriAction>',
+        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Managers/<string:ManagerId>/RemoteAccountService/Accounts/<string:ManagerAccountId>/Keys/<string:KeyId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

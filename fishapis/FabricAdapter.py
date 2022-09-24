@@ -61,8 +61,10 @@ class FabricAdapter(Resource):
 
     def get(
             self,
-            SystemId = "",
-            FabricAdapterId = ""
+            ComputerSystemId = "",
+            FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines GET behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -84,8 +86,10 @@ class FabricAdapter(Resource):
 
     def put(
             self,
-            SystemId = "",
-            FabricAdapterId = ""
+            ComputerSystemId = "",
+            FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines PUT behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -126,8 +130,10 @@ class FabricAdapter(Resource):
 
     def patch(
             self,
-            SystemId = "",
-            FabricAdapterId = ""
+            ComputerSystemId = "",
+            FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines PATCH behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -167,8 +173,10 @@ class FabricAdapter(Resource):
 
     def post(
             self,
-            SystemId = "",
-            FabricAdapterId = ""
+            ComputerSystemId = "",
+            FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines POST behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -185,8 +193,10 @@ class FabricAdapter(Resource):
 
     def delete(
             self,
-            SystemId = "",
-            FabricAdapterId = ""
+            ComputerSystemId = "",
+            FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = ""
             ):
         """Defines DELETE behavior. Called by flask_restful."""
         # When not empty, arguments hold values from the URI
@@ -265,8 +275,10 @@ class FabricAdapterActions(Resource):
 
     def post(
             self,
-            SystemId = "",
+            ComputerSystemId = "",
             FabricAdapterId = "",
+            ResourceBlockId = "",
+            ChassisId = "",
             UriAction = "",
             UriOemAction = ""
             ):
@@ -306,17 +318,35 @@ def activate(rest_api):
     # Register the URIs this API module responds to:
     rest_api.add_resource(
         FabricAdapter,
-        '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>',
-        '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/'
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/',
+        '/redfish/v1/CompositionService/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>',
+        '/redfish/v1/CompositionService/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/',
+        '/redfish/v1/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>',
+        '/redfish/v1/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/'
         )
 
     # Register the Action URIs this API module responds to:
     rest_api.add_resource(
         FabricAdapterActions,
-        '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/<string:UriAction>',
-        '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/Oem/<string:UriOemAction>',
-        '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/<string:UriAction>/',
-        '/redfish/v1/Systems/<string:SystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/Oem/<string:UriOemAction>/'
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/<string:UriAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/CompositionService/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/<string:UriAction>',
+        '/redfish/v1/CompositionService/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/CompositionService/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/<string:UriAction>/',
+        '/redfish/v1/CompositionService/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/<string:UriAction>',
+        '/redfish/v1/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Resourceblocks/<string:ResourceBlockId>/Systems/<string:ComputerSystemId>/FabricAdapters/<string:FabricAdapterId>/Actions/Oem/<string:UriOemAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Actions/<string:UriAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Actions/Oem/<string:UriOemAction>',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Actions/<string:UriAction>/',
+        '/redfish/v1/Chassis/<string:ChassisId>/FabricAdapters/<string:FabricAdapterId>/Actions/Oem/<string:UriOemAction>/'
         )
 
     return

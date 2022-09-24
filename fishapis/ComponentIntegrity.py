@@ -292,6 +292,11 @@ class ComponentIntegrityActions(Resource):
             action_string = action_name + ' action for ' + inst_key
             print(action_string)
             return action_string, HTTP.OK
+        elif action_name == 'ComponentIntegrity.TPMGetSignedMeasurements':
+            # ComponentIntegrity.TPMGetSignedMeasurements
+            action_string = action_name + ' action for ' + inst_key
+            print(action_string)
+            return action_string, HTTP.OK
         else:
             # Did not find a defined Action or OEM Action
             return 'Unknown Action for ' + inst_key, HTTP.BAD_REQUEST
